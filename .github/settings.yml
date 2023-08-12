@@ -2,9 +2,8 @@
 _extends: .github
 
 repository:
-  # See https://developer.github.com/v3/repos/#edit for all available settings.
-  name: renovate-issue-blueprint
-  description: ':lady_beetle: As described in the issue [Renovate Issue:14421]https://github.com/renovatebot/renovate/issues/'
+  name: renovate-issue-aws-ecr-access
+  description: ':lady_beetle: As described in the issue [Renovate Issue]https://github.com/renovatebot/renovate/issues/'
   homepage: https://ivankatliarchuk.github.io
   topics: ivka, renovate, renovate-issue, aws
   private: false
