@@ -17,13 +17,13 @@ module.exports = {
   "hostRules": [
     {
       "hostType": "docker",
-      "matchHost": "602401143452.dkr.ecr",
+      "matchHost": "602401143452.dkr.ecr.eu-west-1",
       "username": "AWS",
       "password": process.env.RENOVATE_AWS_ECR_PWD
     },
     {
       "hostType": "docker",
-      "matchHost": "602401143452.dkr.ecr",
+      "matchHost": "602401143452.dkr.ecreu-west-1",
       "username": "AWS",
       "encrypted": {
         "password": process.env.RENOVATE_AWS_ECR_PWD

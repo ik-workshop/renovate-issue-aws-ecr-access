@@ -1,5 +1,6 @@
 # Renovate is not able to access Amazon EKS ECR private repositories
 
+- [Issue/Question](https://github.com/renovatebot/renovate/discussions/23837)
 - [Amazon container image registries](https://docs.aws.amazon.com/eks/latest/userguide/add-ons-images.html)
 
 ![not authorized can't list images](assets/cannot-list-tags.png "not authorized can't list images")
