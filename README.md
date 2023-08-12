@@ -2,6 +2,10 @@
 
 - [Amazon container image registries](https://docs.aws.amazon.com/eks/latest/userguide/add-ons-images.html)
 
+![not authorized can't list images](assets/cannot-list-tags.png "not authorized can't list images")
+![authorized](assets/can-list-tags.png "authorized and can list tags")
+
+
 ---
 
 ![](https://img.shields.io/github/commit-activity/m/ik-workshop/renovate-issue-aws-ecr-access/)
@@ -29,7 +33,8 @@ $ skopeo list-tags docker://602401143452.dkr.ecr.eu-west-1.amazonaws.com/eks/cor
 $ aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 602401143452.dkr.ecr.eu-west-1.amazonaws.com
 > Login Succeeded
 
-$ aws ecr get-authorization-token --region eu-west-1
+$ ECR_PWD=$(aws ecr get-authorization-token --region eu-west-1)
+$ skopeo list-tags --creds AWS:$ECR_PWD docker://602401143452.dkr.ecr.eu-west-1.amazonaws.com/eks/coredns
 ```
 
 ### Renovate Docs
