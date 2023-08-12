@@ -1,0 +1,131 @@
+...
+DEBUG: migrateAndValidate() (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: No config migration necessary (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: Found repo ignorePaths (repository=ik-workshop/renovate-issue-aws-ecr-access)
+       "ignorePaths": ["**/node_modules/**", "**/bower_components/**"]
+DEBUG: No vulnerability alerts found (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: No vulnerability alerts found (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: baseBranches (repository=ik-workshop/renovate-issue-aws-ecr-access)
+       "baseBranches": ["master", "main"]
+ WARN: Base branch does not exist - skipping (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=master)
+DEBUG: baseBranch: main (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: extract() (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: Setting current branch to main (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: latest commit (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+       "branchName": "main",
+       "latestCommitDate": "2023-08-12T09:38:18+01:00"
+DEBUG: Applying enabledManagers filtering (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: Using file match: (^|/)values\.ya?ml$ for manager helm-values (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: Using file match: (^|/)Chart\.ya?ml$ for manager helmv3 (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: Matched 1 file(s) for manager helm-values: examples/values.yaml (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: manager extract durations (ms) (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+       "managers": {"helm-values": 10}
+DEBUG: Found helm-values package files (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: Found 1 package file(s) (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: Manager explicitly enabled in "enabledManagers" config, but found no results. Possible config error? (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+       "manager": "helmv3"
+ INFO: Dependency extraction complete (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+       "stats": {
+         "managers": {"helm-values": {"fileCount": 1, "depCount": 1}},
+         "total": {"fileCount": 1, "depCount": 1}
+       }
+DEBUG: baseBranch: main (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: ECR getAuthorizationToken error (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: Failed to get authHeaders for getTags lookup (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: Failed to look up docker package 602401143452.dkr.ecr.eu-west-1.amazonaws.com/eks/coredns (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main, packageFile=examples/values.yaml, dependency=602401143452.dkr.ecr.eu-west-1.amazonaws.com/eks/coredns)
+DEBUG: PackageFiles.add() - Package file saved for base branch (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: Package releases lookups complete (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: branchifyUpgrades (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: detectSemanticCommits() (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: getCommitMessages (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: semanticCommits: detected "unknown" (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: semanticCommits: disabled (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: 0 flattened updates found:  (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: Returning 0 branch(es) (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: config.repoIsOnboarded=true (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+DEBUG: packageFiles with updates (repository=ik-workshop/renovate-issue-aws-ecr-access, baseBranch=main)
+       "config": {
+         "helm-values": [
+           {
+             "deps": [
+               {
+                 "depName": "602401143452.dkr.ecr.eu-west-1.amazonaws.com/eks/coredns",
+                 "currentValue": "v1.8.7",
+                 "datasource": "docker",
+                 "replaceString": "v1.8.7",
+                 "versioning": "docker",
+                 "autoReplaceStringTemplate": "{{newValue}}{{#if newDigest}}@{{newDigest}}{{/if}}",
+                 "updates": [],
+                 "packageName": "602401143452.dkr.ecr.eu-west-1.amazonaws.com/eks/coredns",
+                 "warnings": [
+                   {
+                     "topic": "602401143452.dkr.ecr.eu-west-1.amazonaws.com/eks/coredns",
+                     "message": "Failed to look up docker package 602401143452.dkr.ecr.eu-west-1.amazonaws.com/eks/coredns"
+                   }
+                 ]
+               }
+             ],
+             "packageFile": "examples/values.yaml"
+           }
+         ]
+       }
+DEBUG: detectSemanticCommits() (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: semanticCommits: returning "disabled" from cache (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: processRepo() (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: Processing 0 branches:  (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: Calculated maximum PRs remaining this run: 99 (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: PullRequests limit = 99 (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: Calculated maximum branches remaining this run: 99 (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: Branches limit = 99 (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: ensureDependencyDashboard() (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: Closing Dependency Dashboard (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: Retrieving issueList (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: Retrieved 0 issues (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: Removing any stale branches (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: config.repoIsOnboarded=true (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: No renovate branches found (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: PackageFiles.clear() - Package files deleted (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: getPrList success (repository=ik-workshop/renovate-issue-aws-ecr-access)
+       "pullsTotal": 0,
+       "requestsTotal": 1,
+       "apiQuotaAffected": true
+DEBUG: Branch summary (repository=ik-workshop/renovate-issue-aws-ecr-access)
+       "cacheModified": undefined,
+       "baseBranches": [{"branchName": "main", "sha": "674704fc74372c6f1c55636f50341244dc3cab3f"}],
+       "branches": [],
+       "defaultBranch": "main",
+       "inactiveBranches": []
+DEBUG: Renovate repository PR statistics (repository=ik-workshop/renovate-issue-aws-ecr-access)
+       "stats": {"total": 0, "open": 0, "closed": 0, "merged": 0}
+DEBUG: Repository result: done, status: onboarded, enabled: true, onboarded: true (repository=ik-workshop/renovate-issue-aws-ecr-access)
+DEBUG: Repository timing splits (milliseconds) (repository=ik-workshop/renovate-issue-aws-ecr-access)
+       "splits": {"init": 5466, "extract": 112, "lookup": 463, "onboarding": 1, "update": 2},
+       "total": 6672
+DEBUG: Package cache statistics (repository=ik-workshop/renovate-issue-aws-ecr-access)
+       "get": {"count": 1, "avgMs": 7},
+       "set": {"count": 1, "avgMs": 29}
+DEBUG: http statistics (repository=ik-workshop/renovate-issue-aws-ecr-access)
+       "urls": {
+         "https://602401143452.dkr.ecr.eu-west-1.amazonaws.com/v2/eks/coredns/tags/list (GET,401)": 1,
+         "https://api.github.com/graphql (POST,200)": 2,
+         "https://api.github.com/repos/ik-workshop/renovate-issue-aws-ecr-access/pulls (GET,200)": 1
+       },
+       "hostStats": {
+         "602401143452.dkr.ecr.eu-west-1.amazonaws.com": {
+           "requestCount": 1,
+           "requestAvgMs": 185,
+           "queueAvgMs": 0
+         },
+         "api.github.com": {"requestCount": 3, "requestAvgMs": 303, "queueAvgMs": 0}
+       },
+       "totalRequests": 4
+DEBUG: Package lookup durations (repository=ik-workshop/renovate-issue-aws-ecr-access)
+       "docker": {"count": 1, "averageMs": 438, "totalMs": 438, "maximumMs": 438}
+DEBUG: dns cache (repository=ik-workshop/renovate-issue-aws-ecr-access)
+       "hosts": []
+ INFO: Repository finished (repository=ik-workshop/renovate-issue-aws-ecr-access)
+       "cloned": true,
+       "durationMs": 6672
+DEBUG: Checking file package cache for expired items
+DEBUG: Deleted 0 of 1 file cached entries in 16ms
+DEBUG: Renovate exiting

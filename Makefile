@@ -15,6 +15,7 @@ run: ## Nothing to RUN yet
 		-e RENOVATE_TOKEN \
 		-e AWS_ACCESS_KEY_ID \
 		-e AWS_SECRET_ACCESS_KEY \
+		-e RENOVATE_AWS_ECR_PWD \
 		-e LOG_LEVEL=$(LOG_LEVEL) \
 		-v ${PWD}/config.js:/usr/src/app/config.js \
 		-v ${PWD}/repos.json:/usr/src/app/repos.json \

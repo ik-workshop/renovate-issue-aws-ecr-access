@@ -21,7 +21,64 @@
 
 ### Current result
 
+[logs](output.log)
+
+```json
+       "config": {
+         "helm-values": [
+           {
+             "deps": [
+               {
+                 "depName": "602401143452.dkr.ecr.eu-west-1.amazonaws.com/eks/coredns",
+                 "currentValue": "v1.8.7",
+                 "datasource": "docker",
+                 "replaceString": "v1.8.7",
+                 "versioning": "docker",
+                 "autoReplaceStringTemplate": "{{newValue}}{{#if newDigest}}@{{newDigest}}{{/if}}",
+                 "updates": [],
+                 "packageName": "602401143452.dkr.ecr.eu-west-1.amazonaws.com/eks/coredns",
+                 "warnings": [
+                   {
+                     "topic": "602401143452.dkr.ecr.eu-west-1.amazonaws.com/eks/coredns",
+                     "message": "Failed to look up docker package 602401143452.dkr.ecr.eu-west-1.amazonaws.com/eks/coredns"
+                   }
+                 ]
+               }
+             ],
+             "packageFile": "examples/values.yaml"
+           }
+         ]
+       }
+```
+
 ### Expected result
+
+At least one of the host rules is working
+
+```json
+    {
+      "hostType": "docker",
+      "matchHost": "602401143452.dkr.ecr",
+      "username": "AWS",
+      "password": process.env.RENOVATE_AWS_ECR_PWD
+    },
+    {
+      "hostType": "docker",
+      "matchHost": "602401143452.dkr.ecr",
+      "username": "AWS",
+      "encrypted": {
+        "password": process.env.RENOVATE_AWS_ECR_PWD
+      }
+    },
+    {
+      "hostType": "docker",
+      "matchHost": "602401143452.dkr.ecr",
+      "username": process.env.AWS_ACCESS_KEY_ID,
+      "encrypted": {
+        "password": process.env.AWS_SECRET_ACCESS_KEY
+      }
+    }
+```
 
 ## Resources
 
@@ -32,9 +89,19 @@ $ skopeo list-tags docker://602401143452.dkr.ecr.eu-west-1.amazonaws.com/eks/cor
 > FATA[0000] Error listing repository tags: fetching tags list: authentication required
 $ aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 602401143452.dkr.ecr.eu-west-1.amazonaws.com
 > Login Succeeded
-
-$ ECR_PWD=$(aws ecr get-authorization-token --region eu-west-1)
+$ ECR_PWD=$(aws ecr get-login-password --region eu-west-1)
 $ skopeo list-tags --creds AWS:$ECR_PWD docker://602401143452.dkr.ecr.eu-west-1.amazonaws.com/eks/coredns
+> {
+    "Repository": "602401143452.dkr.ecr.eu-west-1.amazonaws.com/eks/coredns",
+    "Tags": [
+        "v1.8.3",
+        "v1.8.3-eksbuild.1",
+        "v1.8.7-eksbuild.7-linux_amd64",
+        "v1.6.9-eksbuild.1",
+        "v1.7.0-eksbuild.1-linux_amd64",
+        "v1.7.0-eksbuild.1",
+        "v1.8.3-eksbuild.1-linux_amd64",
+}
 ```
 
 ### Renovate Docs

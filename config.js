@@ -13,24 +13,25 @@ module.exports = {
   "onboarding": false,
   "requireConfig": "optional",
   "baseBranches": ["master", "main"],
+  "enabledManagers": ["helmv3", "helm-values"],
   "hostRules": [
     {
       "hostType": "docker",
       "matchHost": "602401143452.dkr.ecr",
-      "token": process.env.RENOVATE_AWS_ECR_PWD
+      "username": "AWS",
+      "password": process.env.RENOVATE_AWS_ECR_PWD
     },
     {
       "hostType": "docker",
-      "enabled": "true",
       "matchHost": "602401143452.dkr.ecr",
-      "username": process.env.AWS_ACCESS_KEY_ID,
+      "username": "AWS",
       "encrypted": {
-        "password": process.env.AWS_SECRET_ACCESS_KEY
+        "password": process.env.RENOVATE_AWS_ECR_PWD
       }
     },
     {
       "hostType": "docker",
-      "matchHost": "public.ecr.aws",
+      "matchHost": "602401143452.dkr.ecr",
       "username": process.env.AWS_ACCESS_KEY_ID,
       "encrypted": {
         "password": process.env.AWS_SECRET_ACCESS_KEY
