@@ -44,7 +44,7 @@ module.exports = {
         "Sources",
         "Image Hub"
       ],
-      "prBodyNotes": [":warning: 1. Validate image exists\n ```\n aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 602401143452.dkr.ecr.eu-west-1.amazonaws.com\n docker pull ...\n```\n \n2. **Tests** after apply.\n"]
+      "prBodyNotes": [":warning:\n 1. Validate image exists\n ```\n aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 602401143452.dkr.ecr.eu-west-1.amazonaws.com\n docker pull ...\n```\n \n2. **Test** after apply.\n"]
     },
     {
       "matchDatasources": ["docker"],
@@ -66,7 +66,7 @@ module.exports = {
         "Sources",
         "Image Hub"
       ],
-      "prBodyNotes": [":warning: 1. Validate image exists\n ```\n aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 602401143452.dkr.ecr.eu-west-1.amazonaws.com\n docker pull ...\n```\n \n2. **Tests** after apply.\n"]
+      "prBodyNotes": [":warning:\n 1. Validate image exists\n ```\n aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 602401143452.dkr.ecr.eu-west-1.amazonaws.com\n docker pull ...\n```\n \n2. **Test** after apply.\n"]
     }
   ],
   "hostRules": [
@@ -77,6 +77,7 @@ module.exports = {
       // "username": process.env.AWS_ACCESS_KEY_ID,
       // "password": process.env.AWS_SECRET_ACCESS_KEY
     },
+    // not required
     // {
     //   "hostType": "docker",
     //   "matchHost": "602401143452.dkr.ecr.eu-west-1.amazonaws.com",
