@@ -44,7 +44,7 @@ module.exports = {
         "Sources",
         "Image Hub"
       ],
-      "prBodyNotes": [":warning:\n 1. Validate image exists\n ```\n aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 602401143452.dkr.ecr.eu-west-1.amazonaws.com\n docker pull ...\n```\n \n2. **Test** after apply.\n"]
+      "prBodyNotes": ["ℹ️⚠️ℹ️\n 1. Validate image exists\n ```\n aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 602401143452.dkr.ecr.eu-west-1.amazonaws.com\n docker pull ...\n```\n \n2. **Test** after apply.\n"]
     },
     {
       "matchDatasources": ["docker"],
@@ -66,7 +66,7 @@ module.exports = {
         "Sources",
         "Image Hub"
       ],
-      "prBodyNotes": [":warning:\n 1. Validate image exists\n ```\n aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 602401143452.dkr.ecr.eu-west-1.amazonaws.com\n docker pull ...\n```\n \n2. **Test** after apply.\n"]
+      "prBodyNotes": ["ℹ️⚠️ℹ️\n 1. Validate image exists\n ```\n aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 602401143452.dkr.ecr.eu-west-1.amazonaws.com\n docker pull ...\n```\n \n2. **Test** after apply.\n"]
     }
   ],
   "hostRules": [
