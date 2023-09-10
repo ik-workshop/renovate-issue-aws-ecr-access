@@ -16,23 +16,21 @@ module.exports = {
   "enabledManagers": ["helmv3", "helm-values"],
   "hostRules": [
   // with amazonaws.com
-    // {
-    //   "hostType": "docker",
-    //   "matchHost": "602401143452.dkr.ecr.eu-west-1.amazonaws.com",
-    //   "username": process.env.AWS_ACCESS_KEY_ID,
-    //   "encrypted": {
-    //     "password": process.env.AWS_SECRET_ACCESS_KEY
-    //   }
-    // },
     {
       "hostType": "docker",
       "matchHost": "602401143452.dkr.ecr.eu-west-1.amazonaws.com",
-      "username": "AWS",
-      // "password": process.env.RENOVATE_AWS_ECR_PWD
-      "encrypted": {
-        "password": process.env.RENOVATE_AWS_ECR_PWD
-      }
+      "username": process.env.AWS_ACCESS_KEY_ID,
+      "password": process.env.AWS_SECRET_ACCESS_KEY
     },
+    // {
+    //   "hostType": "docker",
+    //   "matchHost": "602401143452.dkr.ecr.eu-west-1.amazonaws.com",
+    //   "username": "AWS",
+    //   // "password": process.env.RENOVATE_AWS_ECR_PWD
+    //   "encrypted": {
+    //     "password": process.env.RENOVATE_AWS_ECR_PWD
+    //   }
+    // },
     // without amazonaws.com
     // {
     //   "hostType": "docker",
