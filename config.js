@@ -18,9 +18,9 @@ module.exports = {
   // with amazonaws.com
     {
       "hostType": "docker",
-      "matchHost": "602401143452.dkr.ecr.eu-west-1.amazonaws.com",
-      "username": process.env.AWS_ACCESS_KEY_ID,
-      "password": process.env.AWS_SECRET_ACCESS_KEY
+      "matchHost": "602401143452.dkr.ecr.eu-west-1.amazonaws.com"
+      // "username": process.env.AWS_ACCESS_KEY_ID,
+      // "password": process.env.AWS_SECRET_ACCESS_KEY
     },
     // {
     //   "hostType": "docker",
