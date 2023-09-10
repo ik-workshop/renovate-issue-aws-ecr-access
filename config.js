@@ -29,7 +29,7 @@ module.exports = {
       "versioning": "regex:^v?(?<major>\\d+)\.(?<minor>\\d+)\.(?<patch>\\d+)(-eksbuild\\.\\d+)?$",
       "allowedVersions": `/1\\.${k8sProxyMinorVersion}\\.\\d+-eksbuild\\.\\d+$/`,
       "prBodyDefinitions": {
-        "Compatibility Guide": "[▶️](https://docs.aws.amazon.com/eks/latest/userguide/managing-coredns.html)",
+        "Compatibility": "[▶️](https://docs.aws.amazon.com/eks/latest/userguide/managing-coredns.html)",
         "Sources": "[▶️](https://github.com/coredns/coredns)",
         "Image Hub": "[▶️](https://gallery.ecr.aws/eks-distro/coredns/coredns)",
         "Tests": "[▶️](https://hbidigital.atlassian.net/wiki/spaces/PAAS/pages/5860884793/Core+DNS)"
@@ -40,7 +40,7 @@ module.exports = {
         "Update",
         "Change",
         "Tests",
-        "Compatibility Guide",
+        "Compatibility",
         "Sources",
         "Image Hub"
       ],
@@ -52,7 +52,7 @@ module.exports = {
       "versioning": "regex:^v?(?<major>\\d+)\.(?<minor>\\d+)\.(?<patch>\\d+)(-minimal)?-eksbuild\\.\\d+$",
       "allowedVersions": `/1\\.${k8sMinorVersion}\\.[0-9]+-minimal-eksbuild.*/`,
       "prBodyDefinitions": {
-        "Compatibility Guide": "[▶️](https://docs.aws.amazon.com/eks/latest/userguide/managing-kube-proxy.html)",
+        "Compatibility": "[▶️](https://docs.aws.amazon.com/eks/latest/userguide/managing-kube-proxy.html)",
         "Sources": "[▶️](https://github.com/kubernetes/kube-proxy)",
         "Image Hub": "[▶️](https://gallery.ecr.aws/eks-distro/kubernetes/kube-proxy)",
         "Tests": "[▶️](https://hbidigital.atlassian.net/wiki/spaces/PAAS/pages/5860884803/Kube+Proxy)"
@@ -62,7 +62,7 @@ module.exports = {
         "Update",
         "Change",
         "Tests",
-        "Compatibility Guide",
+        "Compatibility",
         "Sources",
         "Image Hub"
       ],
