@@ -1,5 +1,9 @@
 const Fs = require('fs');
 
+const k8sVersion = "< 1.25";
+const k8sMinorVersion = "24"
+const k8sProxyMinorVersion = "9"
+
 module.exports = {
   "platform": "github",
   "token": process.env.RENOVATE_TOKEN,
@@ -13,7 +17,58 @@ module.exports = {
   "onboarding": false,
   "requireConfig": "optional",
   "baseBranches": ["master", "main"],
-  "enabledManagers": ["helmv3", "helm-values"],
+  // "enabledManagers": ["helmv3", "helm-values"],
+  "enabledManagers": ["kubernetes"],
+  "kubernetes": {
+    "fileMatch": ["\\.ya?ml$"]
+  },
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": ['^602401143452\\..*/eks/coredns$'],
+      "versioning": "regex:^v?(?<major>\\d+)\.(?<minor>\\d+)\.(?<patch>\\d+)(-eksbuild\\.\\d+)?$",
+      "allowedVersions": `/1\\.${k8sProxyMinorVersion}\\.\\d+-eksbuild\\.\\d+$/`,
+      "prBodyDefinitions": {
+        "Compatibility Guide": "[▶️](https://docs.aws.amazon.com/eks/latest/userguide/managing-coredns.html)",
+        "Sources": "[▶️](https://github.com/coredns/coredns)",
+        "Image Hub": "[▶️](https://gallery.ecr.aws/eks-distro/coredns/coredns)",
+        "Tests": "[▶️](https://hbidigital.atlassian.net/wiki/spaces/PAAS/pages/5860884793/Core+DNS)"
+      },
+      "prBodyColumns": [
+        "Current Value",
+        "Package",
+        "Update",
+        "Change",
+        "Tests",
+        "Compatibility Guide",
+        "Sources",
+        "Image Hub"
+      ],
+      "prBodyNotes": [":warning: 1. Validate image exists\n ```\n aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 602401143452.dkr.ecr.eu-west-1.amazonaws.com\n docker pull ...\n```\n \n2. **Tests** on apply.\n"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePatterns": [ '^602401143452\\..*/eks/kube-proxy$'],
+      "versioning": "regex:^v?(?<major>\\d+)\.(?<minor>\\d+)\.(?<patch>\\d+)(-minimal)?-eksbuild\\.\\d+$",
+      "allowedVersions": `/1\\.${k8sMinorVersion}\\.[0-9]+-minimal-eksbuild.*/`,
+      "prBodyDefinitions": {
+        "Compatibility Guide": "[▶️](https://docs.aws.amazon.com/eks/latest/userguide/managing-kube-proxy.html)",
+        "Sources": "[▶️](https://github.com/kubernetes/kube-proxy)",
+        "Image Hub": "[▶️](https://gallery.ecr.aws/eks-distro/kubernetes/kube-proxy)",
+        "Tests": "[▶️](https://hbidigital.atlassian.net/wiki/spaces/PAAS/pages/5860884803/Kube+Proxy)"
+      },
+      "prBodyColumns": [
+        "Package",
+        "Update",
+        "Change",
+        "Tests",
+        "Compatibility Guide",
+        "Sources",
+        "Image Hub"
+      ],
+      "prBodyNotes": [":warning: 1. Validate image exists\n ```\n aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 602401143452.dkr.ecr.eu-west-1.amazonaws.com\n docker pull ...\n```\n \n2. **Tests** on apply.\n"]
+    }
+  ],
   "hostRules": [
   // with amazonaws.com
     {
